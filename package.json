@@ -1,0 +1,40 @@
+{
+  "name": "moment-parser",
+  "version": "0.1.0",
+  "description": "moment parser that supports natural language expressions",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "postinstall": "node scripts/peg.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juttle/moment-parser.git"
+  },
+  "keywords": [
+    "moment",
+    "parser"
+  ],
+  "author": "Will Welch <welch@quietplease.com>",
+  "contributors": [
+    "Brian Kerezturi <briankereszturi@gmail.com>",
+    "Michael Demmer <demmer@jut.io>"
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/juttle/moment-parser/issues"
+  },
+  "homepage": "https://github.com/juttle/moment-parser#readme",
+  "dependencies": {
+    "extendable-base": "^0.3.1",
+    "pegjs": "^0.9.0"
+  },
+  "devDependencies": {
+    "chai": "^3.4.1",
+    "mocha": "^2.3.3",
+    "underscore": "^1.8.3"
+  }
+}
