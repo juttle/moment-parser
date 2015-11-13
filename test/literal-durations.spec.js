@@ -1,4 +1,4 @@
-var MomentParser = require('..').MomentParser;
+var MomentParser = require('..');
 var _ = require('underscore');
 var expect = require('chai').expect;
 
