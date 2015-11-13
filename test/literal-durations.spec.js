@@ -36,4 +36,11 @@ describe('literal durations', function() {
             expect(parser.parse(input)).deep.equal(output);
         });
     });
+
+    it('syntax error results from duration nonsense', function() {
+      function parseNonsense() {
+        parser.parse('1 nonesense');
+      }
+      expect(parseNonsense).to.throw(MomentParser.SyntaxError);
+    });
 });
