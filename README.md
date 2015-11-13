@@ -1,6 +1,7 @@
 # moment-parser
 Natural language time parser for moment.js strings
 
+[![Build Status](https://magnum.travis-ci.com/juttle/moment-parser.svg?token=y7186y8XHjB7CcxwUcoX)](https://magnum.travis-ci.com/juttle/moment-parser)
 
 ### Quick start
 
