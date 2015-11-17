@@ -1,10 +1,11 @@
 var MomentParser = require('..');
 var _ = require('underscore');
 var expect = require('chai').expect;
+var moment = require('moment');
 
 var parser = new MomentParser();
 
-describe('literal durations', function() {
+describe('literal duration parsing as AST', function() {
     var tests = {
         '1 hour': {
             type: 'MomentDuration',
@@ -28,6 +29,10 @@ describe('literal durations', function() {
             type: 'MomentDuration',
             unit: "m",
             value: 1
+        },
+
+        'forever': {
+            type: 'ForeverLiteral',
         }
     };
 
@@ -37,10 +42,16 @@ describe('literal durations', function() {
         });
     });
 
-    it('syntax error results from duration nonsense', function() {
-      function parseNonsense() {
-        parser.parse('1 nonesense');
-      }
-      expect(parseNonsense).to.throw(MomentParser.SyntaxError);
+    var throws = {
+        '32 WHA': MomentParser.SyntaxError
+    };
+
+    _.each(throws, function(expected, input) {
+        it('fails on "' + input + '"', function() {
+            function parseInput() {
+                parser.parseAsMoment(input);
+            }
+            expect(parseInput).to.throw(expected);
+        });
     });
 });
