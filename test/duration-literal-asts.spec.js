@@ -31,6 +31,12 @@ describe('literal duration parsing as AST', function() {
             value: 1
         },
 
+        '12 M': {
+            type: 'MomentDuration',
+            unit: "M",
+            value: 12
+        },
+
         'P1W': {
             type: 'ISODurationLiteral',
             value: 'P1W'
@@ -58,7 +64,20 @@ describe('literal duration parsing as AST', function() {
 
         'forever': {
             type: 'ForeverLiteral',
+        },
+
+        '01:23:45': {
+            type: 'FormattedDuration',
+            dotnet: '01:23:45',
+            months: 0
+        },
+
+        '1/23.01:23:45.678': {
+            type: 'FormattedDuration',
+            dotnet: '23.01:23:45.678',
+            months: 1
         }
+
     };
 
     _.each(tests, function(output, input) {

@@ -11,11 +11,16 @@ describe('literal duration parsing as durations', function() {
         '100 s': moment.duration(100,'s'),
         '1.5d': moment.duration(1.5,'d'),
         '1m': moment.duration(1,'m'),
+        '12 M': moment.duration(12,'M'),
         'P1W': moment.duration('P1W'),
         'P1Y2M3DT4H5M6S': moment.duration('P1Y2M3DT4H5M6S'),
         'PT4H5M': moment.duration('PT4H5M'),
         'P1Y2M': moment.duration('P1Y2M'),
-        'P2MT5M': moment.duration('P2MT5M')
+        'P2MT5M': moment.duration('P2MT5M'),
+        '01:23:45': moment.duration('01:23:45'),
+        '01:23:45.678': moment.duration('01:23:45.678'),
+        '23.01:23:45.678': moment.duration('23.01:23:45.678'),
+        '1/23.01:23:45.678': moment.duration('23.01:23:45.678').add(1, 'M')
     };
 
     _.each(tests, function(duration, input) {
