@@ -67,14 +67,20 @@ describe('literal duration parsing as AST', function() {
         },
 
         '01:23:45': {
-            type: 'FormattedDuration',
-            dotnet: '01:23:45',
+            type: 'TimeSpan',
+            seconds: 45,
+            minutes: 23,
+            hours: 1,
+            days: 0,
             months: 0
         },
 
         '1/23.01:23:45.678': {
-            type: 'FormattedDuration',
-            dotnet: '23.01:23:45.678',
+            type: 'TimeSpan',
+            seconds: 45.678,
+            minutes: 23,
+            hours: 1,
+            days: 23,
             months: 1
         }
 
