@@ -17,10 +17,11 @@ describe('literal duration parsing as durations', function() {
         'PT4H5M': moment.duration('PT4H5M'),
         'P1Y2M': moment.duration('P1Y2M'),
         'P2MT5M': moment.duration('P2MT5M'),
+        '00:00:00.123': moment.duration('00:00:00.123'),
         '01:23:45': moment.duration('01:23:45'),
         '01:23:45.678': moment.duration('01:23:45.678'),
-        '23.01:23:45.678': moment.duration('23.01:23:45.678'),
-        '1/23.01:23:45.678': moment.duration('23.01:23:45.678').add(1, 'M')
+        '23.01:23:45.067': moment.duration('23.01:23:45.067'),
+        '1/23.01:23:45.067': moment.duration('23.01:23:45.067').add(1, 'M')
     };
 
     _.each(tests, function(duration, input) {
@@ -30,7 +31,13 @@ describe('literal duration parsing as durations', function() {
     });
 
     var throws = {
-        'forever': MomentParser.SyntaxError
+        'forever': MomentParser.SyntaxError,
+        '0:0:0': MomentParser.SyntaxError,
+        '000:00:00': MomentParser.SyntaxError,
+        '00:00:0.123': MomentParser.SyntaxError,
+        '1.5/23.01:23:45.678': MomentParser.SyntaxError,
+        '1.5/01:23:45.678': MomentParser.SyntaxError,
+        '1/23.01:23:45.0678':MomentParser.SyntaxError
     };
 
     _.each(throws, function(expected, input) {

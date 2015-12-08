@@ -68,6 +68,7 @@ describe('literal duration parsing as AST', function() {
 
         '01:23:45': {
             type: 'TimeSpan',
+            milliseconds: 0,
             seconds: 45,
             minutes: 23,
             hours: 1,
@@ -75,9 +76,10 @@ describe('literal duration parsing as AST', function() {
             months: 0
         },
 
-        '1/23.01:23:45.678': {
+        '1/23.01:23:45.067': {
             type: 'TimeSpan',
-            seconds: 45.678,
+            milliseconds: 67,
+            seconds: 45,
             minutes: 23,
             hours: 1,
             days: 23,
