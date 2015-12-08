@@ -31,6 +31,31 @@ describe('literal duration parsing as AST', function() {
             value: 1
         },
 
+        'P1W': {
+            type: 'ISODurationLiteral',
+            value: 'P1W'
+        },
+
+        'P1Y2M3DT4H5M6S': {
+            type: 'ISODurationLiteral',
+            value: 'P1Y2M3DT4H5M6S'
+        },
+
+        'PT4H5M': {
+            type: 'ISODurationLiteral',
+            value: 'PT4H5M'
+        },
+
+        'P1Y2M': {
+            type: 'ISODurationLiteral',
+            value: 'P1Y2M'
+        },
+
+        'P2MT5M': {
+            type: 'ISODurationLiteral',
+            value: 'P2MT5M'
+        },
+
         'forever': {
             type: 'ForeverLiteral',
         }
