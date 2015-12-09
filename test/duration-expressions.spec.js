@@ -21,4 +21,17 @@ describe('Full duration grammar expression parsing', function() {
         });
     });
 
+    var throws = {
+        '1.5 months': MomentParser.SyntaxError,
+        '1.5 years': MomentParser.SyntaxError
+    };
+
+    _.each(throws, function(expected, input) {
+        it('fails on "' + input + '"', function() {
+            function parseInput() {
+                parser.parseAsMoment(input);
+            }
+            expect(parseInput).to.throw(expected);
+        });
+    });
 });
