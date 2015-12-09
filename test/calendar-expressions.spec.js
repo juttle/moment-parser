@@ -25,4 +25,17 @@ describe('CalendarExpression parsing as moment', function() {
         });
     });
 
+    var throws = {
+        'last week of this year': MomentParser.SyntaxError // last != final!
+    };
+
+    _.each(throws, function(expected, input) {
+        it('fails on "' + input + '"', function() {
+            function parseInput() {
+                parser.parseAsMoment(input);
+            }
+            expect(parseInput).to.throw(expected);
+        });
+    });
+
 });
