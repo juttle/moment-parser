@@ -17,7 +17,7 @@ describe('Full duration grammar expression parsing', function() {
 
     _.each(tests, function(duration, input) {
         it('handles "' + input + '"', function() {
-            expect(parser.parseAsMoment(input)).deep.equal(duration);
+            expect(parser.parseAsDuration(input)).deep.equal(duration);
         });
     });
 
@@ -29,7 +29,7 @@ describe('Full duration grammar expression parsing', function() {
     _.each(throws, function(expected, input) {
         it('fails on "' + input + '"', function() {
             function parseInput() {
-                parser.parseAsMoment(input);
+                parser.parseAsDuration(input);
             }
             expect(parseInput).to.throw(expected);
         });
