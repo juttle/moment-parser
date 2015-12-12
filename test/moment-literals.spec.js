@@ -19,7 +19,7 @@ describe('literal moment parsing as moments', function() {
 
     _.each(tests, function(expected, input) {
         it('handles "' + input + '"', function() {
-            var m = parser.parseAsMoment(input, {now: now});
+            var m = parser.parseMoment(input, {now: now});
             expect(m.isSame(expected)).is.true;
         });
     });
@@ -32,7 +32,7 @@ describe('literal moment parsing as moments', function() {
     _.each(throws, function(expected, input) {
         it('fails on "' + input + '"', function() {
             function parseInput() {
-                parser.parseAsMoment(input);
+                parser.parseMoment(input);
             }
             expect(parseInput).to.throw(expected);
         });

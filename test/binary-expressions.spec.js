@@ -30,7 +30,7 @@ describe('BinaryExpression parsing as moment', function() {
 
     _.each(tests, function(expected, input) {
         it('handles "' + input + '"', function() {
-            expect(is_same(expected, parser.parseAsMoment(input, {now: now}))).is.true;
+            expect(is_same(expected, parser.parseMoment(input, {now: now}))).is.true;
         });
     });
 });
@@ -42,7 +42,7 @@ describe('BinaryExpression parsing as duration', function() {
 
     _.each(tests, function(expected, input) {
         it('handles "' + input + '"', function() {
-            expect(is_same(expected, parser.parseAsDuration(input, {now: now}))).is.true;
+            expect(is_same(expected, parser.parseDuration(input, {now: now}))).is.true;
         });
     });
 });

@@ -21,7 +21,7 @@ describe('CalendarExpression parsing as moment', function() {
 
     _.each(tests, function(expected, input) {
         it('handles "' + input + '"', function() {
-            expect(parser.parseAsMoment(input, {now: now}).isSame(expected)).is.true;
+            expect(parser.parseMoment(input, {now: now}).isSame(expected)).is.true;
         });
     });
 
@@ -32,7 +32,7 @@ describe('CalendarExpression parsing as moment', function() {
     _.each(throws, function(expected, input) {
         it('fails on "' + input + '"', function() {
             function parseInput() {
-                parser.parseAsMoment(input);
+                parser.parseMoment(input);
             }
             expect(parseInput).to.throw(expected);
         });
