@@ -57,7 +57,7 @@ describe('literal moment parsing as AST', function() {
     _.each(throws, function(expected, input) {
         it('fails on "' + input + '"', function() {
             function parseInput() {
-                parser.parseAsMoment(input);
+                parser.parseMoment(input);
             }
             expect(parseInput).to.throw(expected);
         });

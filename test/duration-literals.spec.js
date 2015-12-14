@@ -26,7 +26,7 @@ describe('literal duration parsing as durations', function() {
 
     _.each(tests, function(duration, input) {
         it('handles "' + input + '"', function() {
-            expect(parser.parseAsMoment(input)).deep.equal(duration);
+            expect(parser.parseDuration(input)).deep.equal(duration);
         });
     });
 
@@ -43,7 +43,7 @@ describe('literal duration parsing as durations', function() {
     _.each(throws, function(expected, input) {
         it('fails on "' + input + '"', function() {
             function parseInput() {
-                parser.parseAsMoment(input);
+                parser.parseDuration(input);
             }
             expect(parseInput).to.throw(expected);
         });
