@@ -21,7 +21,8 @@
   "author": "Will Welch <welch@quietplease.com>",
   "contributors": [
     "Brian Kerezturi <briankereszturi@gmail.com>",
-    "Michael Demmer <demmer@jut.io>"
+    "Michael Demmer <demmer@jut.io>",
+    "Rodney Gomes <rodney@jut.io>"
   ],
   "license": "Apache-2.0",
   "bugs": {
