@@ -19,6 +19,7 @@ describe('literal moment parsing as moments', function() {
 
     _.each(tests, function(expected, input) {
         it('handles "' + input + '"', function() {
+            expect(parser.parse(input).valueType).equal('moment');
             var m = parser.parseMoment(input, {now: now});
             expect(m.isSame(expected)).is.true;
         });
