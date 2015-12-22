@@ -23,6 +23,12 @@ describe('moment-parser API ', function() {
         }).to.throw(MomentParser.NotAMomentError);
     });
 
+    it('accepts durations when parsing a moment with acceptDuration=true', function() {
+        var duration = parser.parseMoment("30 seconds", {acceptDuration: true});
+        expect(duration).is.defined;
+        expect(duration.asMilliseconds()).equal(30000);
+    });
+
     it('rejects durations when expecting a date', function() {
         expect(function() {
             parser.parseDate("3 weeks");
