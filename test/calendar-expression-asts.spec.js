@@ -9,6 +9,7 @@ describe('CalendarExpression parsing as AST', function() {
     var tests = {
         'this year': {
             type: 'CalendarExpression',
+            valueType: 'moment',
             direction: 'down',
             unit: 'year',
             expression: {
@@ -17,15 +18,18 @@ describe('CalendarExpression parsing as AST', function() {
         },
         'month of 2015-01-01T01:02:03.456': {
             type: 'CalendarExpression',
+            valueType: 'moment',
             direction: 'down',
             unit: 'month',
             expression: {
                 type: 'ISODateLiteral',
+                valueType: 'moment',
                 value: '2015-01-01T01:02:03.456'
             }
         },
         'final month of this year': {
             type: 'CalendarExpression',
+            valueType: 'moment',
             direction: 'down',
             unit: 'month',
             expression: {
@@ -34,6 +38,7 @@ describe('CalendarExpression parsing as AST', function() {
                 unit: 'year',
                 expression: {
                     type: 'CalendarExpression',
+                    valueType: 'moment',
                     direction: 'down',
                     unit: 'year',
                     expression: {
@@ -44,6 +49,7 @@ describe('CalendarExpression parsing as AST', function() {
         },
         'final day of month of 2015-01-01T01:02:03.456': {
             type: 'CalendarExpression',
+            valueType: 'moment',
             direction: 'down',
             unit: 'day',
             expression: {
@@ -52,10 +58,12 @@ describe('CalendarExpression parsing as AST', function() {
                 unit: 'month',
                 expression: {
                     type: 'CalendarExpression',
+                    valueType: 'moment',
                     direction: 'down',
                     unit: 'month',
                     expression: {
                         type: 'ISODateLiteral',
+                        valueType: 'moment',
                         value: '2015-01-01T01:02:03.456'
                     }
                 }

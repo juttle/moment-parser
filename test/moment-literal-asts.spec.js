@@ -10,37 +10,45 @@ var now = moment.utc('2015-01-01');
 describe('literal moment parsing as AST', function() {
     var tests = {
         'beginning': {
-            type: 'BeginningLiteral'
+            type: 'BeginningLiteral',
+            valueType: 'moment'
         },
 
         '300': {
             type: 'UnixTimeLiteral',
+            valueType: 'moment',
             value: 300
         },
 
         '2015-01-01': {
             type: 'ISODateLiteral',
+            valueType: 'moment',
             value: "2015-01-01T00:00:00"
         },
 
         'yesterday': {
-            type: 'YesterdayLiteral'
+            type: 'YesterdayLiteral',
+            valueType: 'moment'
         },
 
         'today': {
-            type: 'TodayLiteral'
+            type: 'TodayLiteral',
+            valueType: 'moment'
         },
 
         'now': {
-            type: 'NowLiteral'
+            type: 'NowLiteral',
+            valueType: 'moment'
         },
 
         'tomorrow': {
-            type: 'TomorrowLiteral'
+            type: 'TomorrowLiteral',
+            valueType: 'moment'
         },
 
         'end': {
-            type: 'EndLiteral'
+            type: 'EndLiteral',
+            valueType: 'moment'
         }
     };
 

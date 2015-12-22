@@ -26,6 +26,7 @@ describe('literal duration parsing as durations', function() {
 
     _.each(tests, function(duration, input) {
         it('handles "' + input + '"', function() {
+            expect(parser.parse(input).valueType).equal('duration');
             expect(parser.parseDuration(input)).deep.equal(duration);
         });
     });
