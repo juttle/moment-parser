@@ -1,9 +1,9 @@
 # moment-parser
 
-[![Join the chat at https://gitter.im/juttle/moment-parser](https://badges.gitter.im/juttle/moment-parser.svg)](https://gitter.im/juttle/moment-parser?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-Natural language time parser for moment.js strings
-
 [![Build Status](https://travis-ci.org/juttle/moment-parser.svg)](https://travis-ci.org/juttle/moment-parser)
+[![Join the chat at https://gitter.im/juttle/moment-parser](https://badges.gitter.im/juttle/moment-parser.svg)](https://gitter.im/juttle/moment-parser?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+Natural language time parser for moment.js strings
 
 ### Quick start
 
