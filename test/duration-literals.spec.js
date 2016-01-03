@@ -21,7 +21,8 @@ describe('literal duration parsing as durations', function() {
         '01:23:45': moment.duration('01:23:45'),
         '01:23:45.678': moment.duration('01:23:45.678'),
         '23.01:23:45.067': moment.duration('23.01:23:45.067'),
-        '1/23.01:23:45.067': moment.duration('23.01:23:45.067').add(1, 'M')
+        '1/23.01:23:45.067': moment.duration('23.01:23:45.067').add(1, 'M'),
+        'forever': moment.duration(Infinity)
     };
 
     _.each(tests, function(duration, input) {
@@ -32,7 +33,6 @@ describe('literal duration parsing as durations', function() {
     });
 
     var throws = {
-        'forever': MomentParser.SyntaxError,
         '0:0:0': MomentParser.SyntaxError,
         '000:00:00': MomentParser.SyntaxError,
         '00:00:0.123': MomentParser.SyntaxError,
