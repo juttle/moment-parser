@@ -31,7 +31,6 @@ describe('literal duration parsing as durations', function() {
     });
 
     var throws = {
-        'forever': parser.SyntaxError,
         '0:0:0': parser.SyntaxError,
         '000:00:00': parser.SyntaxError,
         '00:00:0.123': parser.SyntaxError,
