@@ -10,8 +10,7 @@ Natural language time parser for moment.js strings
 ```npm install moment-parser```
 
 ```js
-var MomentParser = require('moment-parser');
-var parser = new MomentParser();
+var parser = require('moment-parser');
 
 // durations
 console.log(parser.parse('1 hour')); //{ type: 'MomentDuration', value: 1, unit: 'hour' }
