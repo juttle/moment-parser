@@ -1,9 +1,7 @@
-var MomentParser = require('..');
+var parser = require('..');
 var _ = require('underscore');
 var expect = require('chai').expect;
 var moment = require('moment');
-
-var parser = new MomentParser();
 
 describe('literal duration parsing as AST', function() {
     var tests = {
@@ -108,7 +106,7 @@ describe('literal duration parsing as AST', function() {
     });
 
     var throws = {
-        '32 WHA': MomentParser.SyntaxError
+        '32 WHA': parser.SyntaxError
     };
 
     _.each(throws, function(expected, input) {

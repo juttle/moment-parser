@@ -1,9 +1,7 @@
-var MomentParser = require('..');
+var parser = require('..');
 var _ = require('underscore');
 var expect = require('chai').expect;
 var moment = require('moment');
-
-var parser = new MomentParser();
 
 var now = moment.utc('2015-01-01');
 
@@ -59,7 +57,7 @@ describe('literal moment parsing as AST', function() {
     });
 
     var throws = {
-        '2012/01/01': MomentParser.SyntaxError
+        '2012/01/01': parser.SyntaxError
     };
 
     _.each(throws, function(expected, input) {

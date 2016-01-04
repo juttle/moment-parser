@@ -1,9 +1,7 @@
-var MomentParser = require('..');
+var parser = require('..');
 var _ = require('underscore');
 var expect = require('chai').expect;
 var moment = require('moment');
-
-var parser = new MomentParser();
 
 var now = moment.utc('2015-01-01T01:02:03.456');
 
@@ -23,8 +21,8 @@ describe('Full duration grammar expression parsing', function() {
     });
 
     var throws = {
-        '1.5 months': MomentParser.SyntaxError,
-        '1.5 years': MomentParser.SyntaxError
+        '1.5 months': parser.SyntaxError,
+        '1.5 years': parser.SyntaxError
     };
 
     _.each(throws, function(expected, input) {

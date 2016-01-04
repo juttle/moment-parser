@@ -1,9 +1,7 @@
-var MomentParser = require('..');
+var parser = require('..');
 var _ = require('underscore');
 var expect = require('chai').expect;
 var moment = require('moment');
-
-var parser = new MomentParser();
 
 describe('literal duration parsing as durations', function() {
     var tests = {
@@ -33,12 +31,12 @@ describe('literal duration parsing as durations', function() {
     });
 
     var throws = {
-        '0:0:0': MomentParser.SyntaxError,
-        '000:00:00': MomentParser.SyntaxError,
-        '00:00:0.123': MomentParser.SyntaxError,
-        '1.5/23.01:23:45.678': MomentParser.SyntaxError,
-        '1.5/01:23:45.678': MomentParser.SyntaxError,
-        '1/23.01:23:45.0678':MomentParser.SyntaxError
+        '0:0:0': parser.SyntaxError,
+        '000:00:00': parser.SyntaxError,
+        '00:00:0.123': parser.SyntaxError,
+        '1.5/23.01:23:45.678': parser.SyntaxError,
+        '1.5/01:23:45.678': parser.SyntaxError,
+        '1/23.01:23:45.0678':parser.SyntaxError
     };
 
     _.each(throws, function(expected, input) {
