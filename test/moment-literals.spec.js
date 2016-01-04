@@ -25,4 +25,26 @@ describe('literal moment parsing as moments', function() {
             expect(m.isSame(expected)).is.true;
         });
     });
+
+    it('allows the beginning / end value to be overridden', function() {
+        var m;
+
+        m = parser.parseMoment('beginning', {beginning: moment.utc(-Infinity)});
+        expect(m.valueOf().toString()).equals('NaN');
+        expect(m._i).equals(-Infinity);
+
+        m = parser.parseMoment('beginning', {beginning: moment.utc(0)});
+        expect(m.toISOString()).equals('1970-01-01T00:00:00.000Z');
+        expect(m.valueOf().toString()).equals('0');
+
+        m = parser.parseMoment('end', {end: moment.utc('1234-05-06')});
+        expect(m.toISOString()).equals('1234-05-06T00:00:00.000Z');
+
+        m = parser.parseMoment('end', {end: moment.utc('6543-02-01')});
+        expect(m.toISOString()).equals('6543-02-01T00:00:00.000Z');
+
+        m = parser.parseMoment('end', {end: moment.utc(Infinity)});
+        expect(m.valueOf().toString()).equals('NaN');
+        expect(m._i).equals(Infinity);
+    });
 });
