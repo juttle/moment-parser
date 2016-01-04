@@ -14,20 +14,25 @@ describe('literal moment parsing as moments', function() {
         'yesterday': now.clone().startOf('day').subtract(1, 'day'),
         'today': now.clone().startOf('day'),
         'now': now,
-        'tomorrow': now.clone().startOf('day').add(1, 'day')
+        'tomorrow': now.clone().startOf('day').add(1, 'day'),
+        'beginning': moment.utc(-Infinity),
+        'end': moment.utc(Infinity),
     };
 
     _.each(tests, function(expected, input) {
         it('handles "' + input + '"', function() {
             expect(parser.parse(input).valueType).equal('moment');
             var m = parser.parseMoment(input, {now: now});
-            expect(m.isSame(expected)).is.true;
+            if (! isNaN(m.valueOf())) {
+                expect(m.isSame(expected)).is.true;
+            } else {
+                expect(m._i).equal(expected._i);
+            }
         });
     });
 
     var throws = {
-        'beginning': MomentParser.SyntaxError,
-        'end': MomentParser.SyntaxError
+        'garbage': MomentParser.SyntaxError,
     };
 
     _.each(throws, function(expected, input) {
