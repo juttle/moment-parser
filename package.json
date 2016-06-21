@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "node_modules/.bin/istanbul cover -x 'lib/parser.js' node_modules/.bin/_mocha",
+    "test": "node scripts/peg.js && node_modules/.bin/istanbul cover -x 'lib/parser.js' node_modules/.bin/_mocha",
     "check-coverage": "node_modules/.bin/istanbul check-coverage",
     "postinstall": "node scripts/peg.js"
   },
