@@ -13,6 +13,10 @@ describe('Month literals parsing', function() {
             now.clone().startOf('month').subtract(2, 'month'),
         'feb':
             now.clone().startOf('month').add(10, 'month'),
+        'last feb':
+            now.clone().startOf('month').add(-14, 'month'),
+        'may':
+            now.clone().startOf('month').add(1, 'month'),
     };
 
     _.each(tests, function(expected, input) {

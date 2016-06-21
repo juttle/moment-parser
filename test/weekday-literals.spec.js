@@ -13,6 +13,10 @@ describe('Weekday literals parsing', function() {
             now.clone().startOf('day').subtract(2, 'day'),
         'wed':
             now.clone().startOf('day').add(5, 'day'),
+        'last wed':
+            now.clone().startOf('day').add(-9, 'day'),
+        'sat':
+            now.clone().startOf('day').add(1, 'day'),
     };
 
     _.each(tests, function(expected, input) {
